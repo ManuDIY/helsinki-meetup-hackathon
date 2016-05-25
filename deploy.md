@@ -12,6 +12,7 @@ $ cd todo
 $ cat kontena.yml
 mongodb:
   image: mongo:3.2
+  command: mongod --smallfiles
 
 app:
   image: kontena/todo-example:latest
@@ -48,6 +49,7 @@ Modify kontena.yml
 ```
 mongodb:
   image: mongo:3.2
+  command: mongod --smallfiles
   stateful: true
 ```
 

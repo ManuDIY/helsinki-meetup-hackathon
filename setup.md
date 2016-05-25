@@ -28,7 +28,6 @@ $ kontena master digitalocean create \
 
 ### Step 4. Login and Create a Grid
 
-
 ```
 $ kontena login http://192.168.66.100:8080
 Email: your.email@domain.com

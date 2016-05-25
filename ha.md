@@ -1,6 +1,6 @@
 ## High-Available Todo application
 
-### Step 1. Change MongoDB as Replica Set of 3 instances
+### Step 1. Change MongoDB to Replica Set of 3 instances
 
 ```
 mongodb:
@@ -39,7 +39,7 @@ loadbalancer:
     - 80:80
 ```
 
-### Step 3. Scale app service to 3 instances and attach to the load balancer
+### Step 3. Scale app service up to 3 instances and attach it to the load balancer
 
 ```
 app:
@@ -56,6 +56,7 @@ app:
     wait_for_port: 9292
   command: bundle exec puma -p 9292 -e production
 ```
+See the complete [kontena.yml](./app/kontena-cluster.yml)
 
 ### Step 3. Deploy application
 
