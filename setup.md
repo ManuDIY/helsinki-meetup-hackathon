@@ -55,7 +55,6 @@ $ kontena grid create hackathon
 kontena node digitalocean create \
   --token $DO_TOKEN \
   --ssh-key $SSH_KEY \
-  --size 512mb
 ```
 
 Repeat this step to provision additional Kontena Nodes to your Grid.

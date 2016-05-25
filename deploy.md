@@ -1,4 +1,4 @@
-## Deploy Todo application
+## Deploy Todo Application
 
 ### Step 1. Go to `todo` folder
 
