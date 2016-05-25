@@ -1,9 +1,9 @@
 # Kontena Helsinki Meetup Hackathon
 
 ## PRE-TAKEOFF CHECKLIST
-[ ] A laptop with Ruby (2.0 or higher) installed (Docker is also recommended)
-[ ] Recommended: Docker installed
-[ ] Advanced: OpenVPN client installed
+- [ ] A laptop with Ruby (2.0 or higher) installed.
+- [ ] Recommended: Docker installed.
+- [ ] Advanced: OpenVPN client installed.
 
 ## CHALLENGES
 1. [Setup Kontena environment](setup.md)
