@@ -1,13 +1,12 @@
-  app:
-    extends:
-      file: docker-compose.yml
-      service: web
-    image: kontena/todo-example:latest
-    environment:
-      - MONGODB_URI=mongodb://%{project}-mongodb.kontena.local/todo_production    
+mongodb:
+  image: mongo:3.2
 
-  mongodb:
-    extends:
-      file: docker-compose.yml
-      service: mongodb
-    stateful: true
+app:
+  image: kontena/todo-example:latest
+  ports:
+    - 9292:9292
+  links:
+    - mongodb:mongodb
+  environment:
+    - MONGODB_URI=mongodb://%{project}-mongodb.kontena.local/todo_production
+  command: bundle exec puma -p 9292 -e production
