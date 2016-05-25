@@ -1,0 +1,72 @@
+## High-Available Todo application
+
+### Step 1. Change MongoDB as Replica Set of 3 instances
+
+```
+mongodb:
+  image: mongo:3.2
+  instances: 3
+  stateful: true
+  command: --replSet kontena --smallfiles
+  hooks:
+    post_start:
+      - cmd: sleep 10
+        name: sleep
+        instances: 1
+        oneshot: true
+      - cmd: mongo --eval "printjson(rs.initiate());"
+        name: rs_initiate
+        instances: 1
+        oneshot: true
+      - cmd: mongo --eval "printjson(rs.add('%{project}-mongodb-2'))"
+        name: rs_add2
+        instances: 1
+        oneshot: true
+      - cmd: mongo --eval "printjson(rs.add('%{project}-mongodb-3'))"
+        name: rs_add3
+        instances: 1
+        oneshot: true
+```
+
+### Step 2. Add loadbalancer service with daemon strategy
+
+```
+loadbalancer:
+  image: kontena/lb:latest
+  deploy:
+    strategy: daemon
+  ports:
+    - 80:80
+```
+
+### Step 3. Scale app service to 3 instances and attach to the load balancer
+
+```
+app:
+  image: kontena/todo-example:latest
+  instances: 3
+  links:
+    - mongodb:mongodb
+    - loadbalancer
+  environment:
+    - MONGODB_URI=mongodb://%{project}-mongodb-1.kontena.local:27017,%{project}-mongodb-2.kontena.local:27017,%{project}-mongodb-3.kontena.local:27017/todo_production
+    - KONTENA_LB_VIRTUAL_PATH=/
+    - KONTENA_LB_INTERNAL_PORT=9292
+  deploy:
+    wait_for_port: 9292
+  command: bundle exec puma -p 9292 -e production
+```
+
+### Step 3. Deploy application
+
+```
+$ kontena app deploy
+```
+
+### Step 4. Verify the Deployment
+
+```
+$ kontena app show loadbalancer
+```
+
+Pick up the public ip addresses of the nodes where the loadbalancer is running and open in a browser http://node_ip_address/
