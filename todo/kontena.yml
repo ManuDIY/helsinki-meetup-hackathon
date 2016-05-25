@@ -1,0 +1,13 @@
+  app:
+    extends:
+      file: docker-compose.yml
+      service: web
+    image: kontena/todo-example:latest
+    environment:
+      - MONGODB_URI=mongodb://%{project}-mongodb.kontena.local/todo_production    
+
+  mongodb:
+    extends:
+      file: docker-compose.yml
+      service: mongodb
+    stateful: true
