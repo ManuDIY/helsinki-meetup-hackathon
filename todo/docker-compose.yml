@@ -10,3 +10,4 @@ web:
 
 mongodb:
   image: mongo:3.2
+  command: mongod --smallfiles
