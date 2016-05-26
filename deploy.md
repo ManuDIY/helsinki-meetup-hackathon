@@ -2,13 +2,13 @@
 
 ### Step 1. Go to `todo` folder
 
-```
+```sh
 $ cd todo
 ```
 
 ### Step 2. Verify kontena.yml
 
-```
+```yaml
 $ cat kontena.yml
 mongodb:
   image: mongo:3.2
@@ -27,13 +27,13 @@ app:
 
 ### Step 3. Deploy the Application
 
-```
+```sh
 $ kontena app deploy
 ```
 
 ### Step 4. Verify the Deployment
 
-```
+```sh
 $ kontena app show app
 ```
 
@@ -44,9 +44,13 @@ Pick up the public ip address of the node where the app is running and open in a
 
 Every time `mongodb` is deployed all the data is lost. To persist data to host node and re-use it we can define `mongodb` service as stateful.
 
+```sh
+$ kontena app rm
+```
+
 Modify kontena.yml
 
-```
+```yaml
 mongodb:
   image: mongo:3.2
   command: mongod --smallfiles
