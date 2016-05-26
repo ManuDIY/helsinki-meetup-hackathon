@@ -44,7 +44,7 @@ $ kontena app monitor
 $ kontena app show app
 ```
 
-Pick up the public ip address of the node where the app is running and open in a browser http://node_ip_address:9292
+Pick up the public ip address of the node where the app is running and open in a browser http://node_ip_address/
 
 
 ### Step 5. Change MongoDB as Stateful
