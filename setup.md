@@ -39,7 +39,8 @@ $ kontena master digitalocean create \
 ### Step 4. Login and Create a Grid
 
 ```sh
-$ kontena login https://your.master.address
+$ export SSL_IGNORE_ERRORS=true
+$ kontena login --name=your_master_name https://your.master.address
 ```
 
 Enter the login info:
