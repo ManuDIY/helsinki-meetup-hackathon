@@ -31,13 +31,20 @@ app:
 $ kontena app deploy
 ```
 
+To follow the execution:
+
+```sh
+$ kontena app ps
+$ kontena app monitor
+```
+
 ### Step 4. Verify the Deployment
 
 ```sh
 $ kontena app show app
 ```
 
-Pick up the public ip address of the node where the app is running and open in a browser http://node_ip_address/
+Pick up the public ip address of the node where the app is running and open in a browser http://node_ip_address:9292
 
 
 ### Step 5. Change MongoDB as Stateful
