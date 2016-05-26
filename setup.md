@@ -1,4 +1,4 @@
-## Setup Kontena environment
+## Setup Kontena Environment on Digital Ocean
 
 > NOTE: We are assuming in here you are setting up Kontena on Digital Ocean. Therefore, you'll need to obtain Digital Ocean API token. If you are participating Kontena Hackathon event, you'll get temporary SSH key and DO API token from the event organizers. If you are doing this Hackathon on your own, you'll need to use your own personal SSH key and DO API token.
 
