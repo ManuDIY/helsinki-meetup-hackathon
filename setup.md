@@ -1,25 +1,29 @@
 ## Setup Kontena environment
 
+> NOTE: We are assuming in here you are setting up Kontena on Digital Ocean. Therefore, you'll need to obtain Digital Ocean API token. If you are participating Kontena Hackathon event, you'll get temporary SSH key and DO API token from the event organizers. If you are doing this Hackathon on your own, you'll need to use your own personal SSH key and DO API token.
+
 ### Step 1. Install Kontena CLI (command-line interface)
+
 You can install the Kontena CLI with Rubygems package manager (included in Ruby).
 
-```
+```sh
 $ gem install kontena-cli
 ```
 
 ### Step 2. Register Personal User Account
 
-```
+```sh
 $ kontena register
 ```
 
 ### Step 3. Install Kontena Master
-```
+
+```sh
 $ export DO_TOKEN=your_digital_ocean_token
 $ export SSH_KEY=path_to_ssh_key
 ```
 
-```
+```sh
 $ kontena master digitalocean create \
   --token $DO_TOKEN \
   --ssh-key $SSH_KEY \
@@ -28,8 +32,13 @@ $ kontena master digitalocean create \
 
 ### Step 4. Login and Create a Grid
 
+```sh
+$ kontena login https://your.master.address
 ```
-$ kontena login http://192.168.66.100:8080
+
+Enter the login info:
+
+```sh
 Email: your.email@domain.com
 Password: *********
  _               _
