@@ -69,7 +69,7 @@ $ kontena grid create hackathon
 ```
 kontena node digitalocean create \
   --token $DO_TOKEN \
-  --ssh-key $SSH_KEY \
+  --ssh-key $SSH_KEY
 ```
 
 Repeat this step to provision additional Kontena Nodes to your Grid.
