@@ -10,6 +10,12 @@ You can install the Kontena CLI with Rubygems package manager (included in Ruby)
 $ gem install kontena-cli
 ```
 
+Also install `droplet_kit` gem used for DigitalOcean provisioning
+
+```sh
+$ gem install droplet_kit
+```
+
 ### Step 2. Register Personal User Account
 
 ```sh
