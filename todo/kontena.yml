@@ -5,7 +5,7 @@ mongodb:
 app:
   image: kontena/todo-example:latest
   ports:
-    - 9292:9292
+    - 80:9292
   links:
     - mongodb:mongodb
   environment:
